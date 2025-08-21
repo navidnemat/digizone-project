@@ -1,0 +1,165 @@
+'use client'
+
+import SearchBox from "./searchBox";
+import { motion, useAnimation } from "framer-motion";
+import { GoPerson } from "react-icons/go";
+import { TbCategoryPlus } from "react-icons/tb";
+import { FiPhone } from "react-icons/fi";
+// import { IoArrowDown } from "react-icons/io5";
+import CategoryMenu from "./categories";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import HamburgerButton from "./menuBtn";
+
+
+export default function Navbar() {
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    const controls = useAnimation()
+
+    const pathName = usePathname()
+
+    const navs = [
+        {
+            title: 'صفحه اصلی',
+            link: '/',
+        },
+        {
+            title: 'تماس با ما',
+            link: '/dgs',
+        },
+        {
+            title: 'وبلاگ',
+            link: '/dgds',
+        },
+    ];
+
+
+    return (
+        <header className={`z-[9999] transition-all duration-700 ${scrolled ? 'pt-0 fixed top-0 left-0 w-full' : 'pt-10'}`}>
+            <div className={`max-w-[1676px] transition-all duration-700 mx-auto w-full  ${scrolled ? 'xl:px-0 px-0' : 'xl:px-10 px-4'}`}>
+                <div className={`flex flex-col shadow-[0_0_4px_black]/14 transition-all duration-700 ${scrolled ? 'p-4 gap-2' : 'rounded-xl p-5 lg:pb-3 gap-6'} `}>
+                    <div className="flex items-center justify-between">
+                        <div className="flex lg:hidden items-center">
+                            <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <div className="hidden lg:flex">
+                                <img src="/images/logo.png" alt="logo" width={58} height={42} />
+                            </div>
+                            <SearchBox />
+                        </div>
+                        <div className="hidden lg:flex items-center gap-4">
+                            <button className="rounded-full px-7 py-2 text-[#719083] flex items-center gap-2 border border-[#BFD0C8] transition-all duration-200 hover:opacity-80">
+                                {/* <img src="/images/person.svg" alt="basket" /> */}
+                                <GoPerson size={24} />
+                                <span>ورود / ثبت نام</span>
+                            </button>
+
+
+                            <motion.button
+                                className="rounded-full px-7 py-2 text-white flex items-center gap-2 bg-[#00A47C] transition-all duration-300 hover:opacity-80"
+                                onHoverStart={() => controls.start({ rotate: [0, 15, -15, 10, -10, 0] })}
+                                onHoverEnd={() => controls.start({ rotate: 0 })}
+                            >
+                                <motion.img
+                                    src="/images/basket.svg"
+                                    alt="basket"
+                                    animate={controls}
+                                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                                />
+                                <span>سبد خرید</span>
+                            </motion.button>
+
+                        </div>
+                    </div>
+                    <div className="hidden lg:flex items-center justify-between text-[#445D54]">
+                        <div className="flex items-center gap-5">
+                            <div className="items-center hidden md:flex">
+                                <CategoryMenu>
+                                    <div
+className="flex items-center gap-1.5 transition-all duration-200 hover:text-[#25E2AD] cursor-pointer">
+                                        <TbCategoryPlus size={24} />
+                                        <span>دسته بندی محصولات</span>
+                                        {/* <IoArrowDown size={20}/> */}
+                                    </div>
+                                </CategoryMenu>
+
+                            </div>
+                            <div className="flex items-center gap-4">
+                                {navs.map((item, index) => (
+                                    
+                                        <Link
+                                            className={` ${item.link === pathName ? "text-[#25E2AD] before:w-full" : ""} leading-4 hover:text-[#25E2AD] text-[17px] h-full gap-6 relative transition-all duration-200 before:w-0 before:absolute before:right-0 before:h-[3px] before:bottom-0 before:bg-[#25E2AD] before:rounded-full before:ease-out before:duration-200 hover:before:w-full flex items-center py-3`}
+                                            href={`${item.link}`}
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    
+                                ))}
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <span>+989919720673 | +98905925555</span>
+                            <FiPhone size={21}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    )
+}
+
+
+
+
+//////////////////////////////////////
+
+
+import React from 'react'
+
+interface HamburgerButtonProps {
+  isOpen?: boolean
+  onClick?: () => void
+}
+
+const HamburgerButton: React.FC<HamburgerButtonProps> = ({ isOpen, onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      className="relative w-8 h-8 flex flex-col justify-center items-center group"
+      aria-label="Toggle menu"
+    >
+      <span
+        className={`block w-5 h-0.5 bg-gray-600 transition-transform duration-300 ease-in-out ${
+          isOpen ? 'rotate-45 translate-y-1.5' : ''
+        }`}
+      />
+      <span
+        className={`block w-5 h-0.5 bg-gray-600 my-1 transition-all duration-300 ease-in-out ${
+          isOpen ? 'opacity-0' : ''
+        }`}
+      />
+      <span
+        className={`block w-5 h-0.5 bg-gray-600 transition-transform duration-300 ease-in-out ${
+          isOpen ? '-rotate-45 -translate-y-1.5' : ''
+        }`}
+      />
+    </button>
+  )
+}
+
+export default HamburgerButton
