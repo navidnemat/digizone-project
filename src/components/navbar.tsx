@@ -38,7 +38,7 @@ export default function Navbar() {
         { title: "صفحه اصلی", link: "/" },
         { title: "تماس با ما", link: "/dgs" },
         { title: "وبلاگ", link: "/dgds" },
-        
+        { title: "صفحه محصول تست", link: "/productPage" },
     ];
 
     return (
