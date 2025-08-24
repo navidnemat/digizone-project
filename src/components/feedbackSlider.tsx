@@ -4,10 +4,9 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
 
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode } from 'swiper/modules';
 
 import FeedBackItem from './feedbackItem';
 
@@ -20,11 +19,7 @@ export default function FeedbackSlider() {
         slidesPerView={3}
         spaceBetween={0}
         freeMode
-        modules={[FreeMode, Pagination]}
-        pagination={{
-          el: ".swiper-pagination",
-          clickable: true,
-        }}
+        modules={[FreeMode]}
         className="mySwiper w-full !overflow-visible"
         breakpoints={{
           360: {
@@ -48,20 +43,18 @@ export default function FeedbackSlider() {
         }}
       >
         <SwiperSlide>
-          <FeedBackItem name='نوید نعمتی' text='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان' date='1404/04/10'/>
+          <FeedBackItem name='نوید نعمتی' text='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان' date='1404/04/10' />
         </SwiperSlide>
         <SwiperSlide>
-          <FeedBackItem name='حمیدرضا اسماعیل زاده' text='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد نیاز' date='1404/04/10'/>
-        </SwiperSlide>
-<SwiperSlide>
-          <FeedBackItem name='نوید نعمتی' text='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان' date='1404/04/10'/>
+          <FeedBackItem name='حمیدرضا اسماعیل زاده' text='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد نیاز' date='1404/04/10' />
         </SwiperSlide>
         <SwiperSlide>
-          <FeedBackItem name='حمیدرضا اسماعیل زاده' text='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با ' date='1404/04/10'/>
+          <FeedBackItem name='نوید نعمتی' text='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان' date='1404/04/10' />
+        </SwiperSlide>
+        <SwiperSlide>
+          <FeedBackItem name='حمیدرضا اسماعیل زاده' text='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با ' date='1404/04/10' />
         </SwiperSlide>
 
-
-        <div className="swiper-pagination block md:hidden"></div>
       </Swiper>
     </div>
   );

@@ -8,6 +8,7 @@ import SimilarProductSlider from "@/components/similarProductSlider";
 import { TbBasketX } from "react-icons/tb";
 import Link from "next/link";
 import FeedbackSlider from "@/components/feedbackSlider";
+import { FiMoreVertical } from "react-icons/fi";
 
 export default function ProductPage() {
 
@@ -56,9 +57,29 @@ export default function ProductPage() {
                             <span className="text-lg lg:text-xl estedadBold text-[#1A2421]">کالاهای مشابه</span>
                             <SimilarProductSlider />
                         </div>
+
                         <div className="flex md:hidden xl:flex flex-col">
                             <span className="text-lg lg:text-xl estedadBold text-[#1A2421] mb-2">نظرات کاربران</span>
                             <FeedbackSlider />
+                        </div>
+
+                        <div className="flex md:hidden flex-col rounded-xl border-2 border-[#BFD0C8] px-4 py-3 -mt-5 mx-1 gap-3.5">
+                            <div className="flex items-center w-full justify-between">
+                                <div className="flex items-center gap-1">
+                                    <span className="text-[#1A2421] text-2xl lg:text-3xl vazir-num">{formatNumberWithCommas(250000000)}</span>
+                                    <img src="/images/currency.svg" className="max-w-[25px] lg:max-w-[36px]" />
+                                </div>
+                                <ColorPicker />
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <button className="p-1 pr-0">
+                                    <FiMoreVertical size={23} className="text-[#1A2421]"/>
+                                </button>
+                                <button className="rounded-full bg-[#A0FAD9] p-1.5 flex grow gap-1.5 items-center justify-center text-[#003028]">
+                                    <img src="/images/mobileCartIcon.svg"/>
+                                    <span className="text-sm">افزودن به سبد خرید</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
 

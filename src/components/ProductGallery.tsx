@@ -23,7 +23,7 @@ export default function ProductGallery() {
     const hiddenCount = images.length - visibleCount;
 
     return (
-        <div className="w-full min-w-[350px] lg:min-w-[400px] min-h-[422px] flex flex-col justify-between items-center rounded-2xl shadow-md p-6 bg-[#DFE8E4] cursor-pointer">
+        <div className="w-full min-w-[342px] lg:min-w-[400px] min-h-[422px] flex flex-col justify-between items-center rounded-2xl shadow-md p-6 bg-[#DFE8E4] cursor-pointer">
             {/* عکس اصلی */}
             <div className='flex items-center justify-center h-[310px] mb-4 w-full'>
                 <div className="">

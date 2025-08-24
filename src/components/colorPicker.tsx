@@ -23,13 +23,13 @@ export default function ColorPicker() {
     }
 
     return (
-        <div className="flex gap-4">
+        <div className="flex gap-2 lg:gap-4">
             {colors.map((color) => (
                 <button
                     key={color.id}
                     onClick={() => setSelected(color.id)}
                     className={`
-            relative w-10 h-10 rounded-full border-2 transition-all
+            relative w-7.5 h-7.5 lg:w-10 lg:h-10 rounded-full border lg:border-2 transition-all
             ${selected === color.id ? "border-black scale-110" : ""}
           `}
                     style={{ backgroundColor: color.value }}
