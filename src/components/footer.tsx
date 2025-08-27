@@ -60,7 +60,9 @@ export default function Footer() {
                             
                         </div>
                     </div>
+                    
                 </div>
+                <div className="pb-2 text-white opacity-85 tet-sm">طراحی توسط نیما پرند‌آور و کدنویسی توسط نوید نعمتی</div>
             </div>
         </section>
     )
