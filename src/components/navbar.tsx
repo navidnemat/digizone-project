@@ -109,7 +109,7 @@ export default function Navbar() {
                                         </div>
                                         <div className="flex items-center text-[#445D54] gap-2 self-end p-4">
                                             <div className="flex flex-col plusjs">
-                                                <span>989919720673+</span>
+                                                <span className="text-left">989919720673+</span>
                                                 <span>989059255565+</span>
                                             </div>
                                             <FiPhone size={25} />
